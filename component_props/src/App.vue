@@ -1,58 +1,24 @@
-<!-- <template>
-  <div>
-    <h1>Reusable Button Example</h1>
-    
-    <ButtonComponent label="Click Me" color="blue" @clicked="onButtonClick" class="button"/>
-
-    <ButtonComponent label="Delete" color="red" @clicked="onDeleteClick" />
-
-    <ButtonComponent label="Pause" color="green" @clicked="onPaseClick" />
-  </div>
-</template>
-
-<script>
-import ButtonComponent from './components/ButtonComponent.vue';
-
-export default {
-  components: { ButtonComponent },
-  methods: {
-    onButtonClick() {
-      alert('Button clicked!');
-    },
-    onDeleteClick() {
-      alert('Delete button clicked!');
-    },
-    onPaseClick(){
-      alert('Pass button click')
-    }
-  }
-}
-</script>
-
-<style>
-button{
-  margin: 5px;
-
-  
-}
-</style> -->
-
 <template>
   <div class="container">
     <h1>Material Entry Form</h1>
 
     <InputField label="Material Code" placeholder="Enter Material Code" @input-change="updateMaterialCode"/>
+    <InputField label="Material Name" placeholder="Enter Material Name" @input-change="updateMaterialName"/>
     <InputField label="Quantity" type="number" placeholder="Enter Quantity" @input-change="updateQuantity"/>
+    <InputField label="Price" type="number" placeholder="Enter Price" @input-change="updatePrice"/>
 
     <div class="buttons">
       <ButtonComponent label="Save" color="green" @clicked="saveMaterial"/>
+      <ButtonComponent label="Update" color="orange" @clicked="updateMaterial"/>
       <ButtonComponent label="Delete" color="red" @clicked="clearForm"/>
     </div>
 
     <div class="preview">
       <h3>Current Data</h3>
       <p><strong>Material Code:</strong> {{ materialCode }}</p>
+      <p><strong>Material Name:</strong> {{ materialName }}</p>
       <p><strong>Quantity:</strong> {{ quantity }}</p>
+      <p><strong>Price:</strong> {{ price }}</p>
     </div>
   </div>
 </template>
@@ -67,26 +33,38 @@ export default {
   data() {
     return {
       materialCode: '',
-      quantity: ''
+      materialName: '',
+      quantity: '',
+      price: ''
     };
   },
   methods: {
-    updateMaterialCode(value) {
-      this.materialCode = value;
-    },
-    updateQuantity(value) {
-      this.quantity = value;
-    },
+   
+    updateMaterialCode(value) { this.materialCode = value; },
+    updateMaterialName(value) { this.materialName = value; },
+    updateQuantity(value) { this.quantity = value; },
+    updatePrice(value) { this.price = value; },
+
+    
     saveMaterial() {
-      if (this.materialCode && this.quantity) {
-        alert(`Saved Successfully!\nMaterial Code: ${this.materialCode}\nQuantity: ${this.quantity}`);
+      if (this.materialCode && this.materialName && this.quantity && this.price) {
+        alert(`Saved Successfully!`);
       } else {
         alert('Please fill in all fields.');
       }
     },
+    updateMaterial() {
+      if (this.materialCode) {
+        alert(`Material Updated!\nCode: ${this.materialCode}\nName: ${this.materialName}\nQuantity: ${this.quantity}\nPrice: ${this.price}`);
+      } else {
+        alert('Enter Material Code to update.');
+      }
+    },
     clearForm() {
       this.materialCode = '';
+      this.materialName = '';
       this.quantity = '';
+      this.price = '';
       alert('Form cleared.');
     }
   }
@@ -102,22 +80,17 @@ export default {
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background-color: aliceblue;
 }
-
-h1 {
-  margin-bottom: 20px;
-}
-
 .buttons {
   margin-top: 15px;
 }
-
 .preview {
-   margin: 5% auto;
+  margin: 5% auto;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 6px;
-  width: 260px;
+  width: 280px;
   text-align: center;
 }
 </style>

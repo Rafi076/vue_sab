@@ -1,12 +1,7 @@
 <template>
   <div class="input-container">
     <label>{{ label }}</label>
-    <input
-      :type="type"
-      :placeholder="placeholder"
-      v-model="inputValue"
-      @input="$emit('input-change', inputValue)"
-    />
+    <input :type="type" :placeholder="placeholder" v-model="inputValue" @input="$emit('input-change', inputValue)"/>
   </div>
 </template>
 
@@ -29,7 +24,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style >
 .input-container {
   margin-bottom: 10px;
 }
