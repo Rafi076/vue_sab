@@ -31,7 +31,7 @@ export default {
   name: 'App',
   components: { InputField, ButtonComponent },
   data() {
-    return {
+    return { 
       materialCode: '',
       materialName: '',
       quantity: '',
