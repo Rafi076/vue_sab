@@ -14,6 +14,7 @@
     </div>
 
     <div class="preview">
+      
       <h3>Current Data</h3>
       <p><strong>Material Code:</strong> {{ materialCode }}</p>
       <p><strong>Material Name:</strong> {{ materialName }}</p>
