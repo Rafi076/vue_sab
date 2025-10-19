@@ -52,8 +52,6 @@ export default {
       lowStockWarning: false
     }
   },
-
-  
   computed: {
     totalProducts() {
       return this.products.length
@@ -62,8 +60,6 @@ export default {
       return this.products.reduce((sum, item) => sum + item.qty * item.price, 0)
     }
   },
-
-  
   watch: {
     products: {
       deep: true,
@@ -71,9 +67,7 @@ export default {
         this.lowStockWarning = newList.some(item => item.qty < 5)
       }
     }
-  },
-
-  
+  },  
   created() {
     console.log("Dashboard created — preparing data...")
   },
@@ -90,8 +84,6 @@ export default {
       console.log("Initial data loaded.")
     }, 1000)
   },
-
-
   methods: {
     addProduct() {
       if (this.newProduct && this.quantity > 0 && this.price > 0) {
@@ -104,7 +96,7 @@ export default {
         this.quantity = 0
         this.price = 0
       } else {
-        alert("⚠️ Please fill all fields correctly!")
+        alert("Please fill all fields correctly!")
       }
     }
   }
