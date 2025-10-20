@@ -1,19 +1,15 @@
-
-
-
 <template>
- <div id="app">
-   <h1>Users Data</h1>
-   <UserList/>
- </div>
+  <div id="app">
+    <h1>Users Data</h1>
+    <UserList />
+  </div>
 </template>
 
 <script>
-import UserList from './components/UserList.vue';
-export default{
+import UserList from './components/UserList.vue'
+
+export default {
   name: 'App',
-  components:{
-    UserList
-  }
+  components: { UserList }
 }
 </script>
