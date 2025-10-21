@@ -1,6 +1,6 @@
 <template>
   <div class="add-todo">
-    <h2>Add a Todo</h2>
+    <h2>Add a Task</h2>
 
     <el-input v-model="task" placeholder="Enter task" clearable style="width: 95%; margin-bottom: 15px;"></el-input>
   

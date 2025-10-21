@@ -8,13 +8,11 @@
   <el-table-column prop="day" label="Complete By (Day)" width="150"></el-table-column>
   <el-table-column label="Actions">
     <template slot-scope="scope">
-      <!-- Show Done button when not completed -->
+      
       <el-button v-if="!scope.row.completed" type="success" size="mini" @click="toggle(scope.$index)">Done</el-button>
 
-      <!-- Show UnDone button when completed -->
       <el-button v-else type="warning" size="mini" @click="toggle(scope.$index)">In Progress</el-button>
 
-      <!-- Delete button -->
       <el-button type="danger" size="mini" @click="remove(scope.$index)">Delete </el-button>
     </template>
   </el-table-column>
